@@ -1,0 +1,17 @@
+.c-error {
+    border: solid 10px red;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 50px;
+    line-height: 50px;
+    width: 400px;
+
+    animation: cssAnimation 3s forwards;
+}
+
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
