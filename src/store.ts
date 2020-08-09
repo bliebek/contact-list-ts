@@ -7,3 +7,4 @@ const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 export default store;
+export { sagaMiddleware };

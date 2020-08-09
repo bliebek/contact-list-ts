@@ -1,18 +1,26 @@
-import React from "react";
-import apiData from "./../../service/api/api";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import PersonInfo from "./../person/info";
+import { getPersonList } from "../../service/person/actions";
+import { list, loading, error } from "../../service/person/selectors";
+import { Person } from "../../service/person/types";
 
 function App() {
-  const [data, setData] = React.useState([]);
-  const [selected, setSelected] = React.useState([]);
+  const dispatch = useDispatch();
+  const data = useSelector(list);
+  const isLoading = useSelector(loading);
+  const actionError = useSelector(error);
 
-  //  TODO fetch contacts using apiData function, handle loading and error states
+
+    useEffect(() => {
+        dispatch(getPersonList());
+    }, [ dispatch ]);
 
   return (
     <div className="app">
-      <div className="selected">Selected contacts: {selected.length}</div>
+      <div className="selected">Selected contacts: {0}</div>
       <div className="list">
-        {data.map((personInfo) => (
+        {data.map((personInfo:Person) => (
           // @ts-ignore
           <PersonInfo key={personInfo.id} data={personInfo} />
         ))}

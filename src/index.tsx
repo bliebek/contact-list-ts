@@ -1,11 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
+
 import "./index.css";
 import App from "./component/app/app";
+import store, { sagaMiddleware } from './store';
+import { rootSaga } from './service/root-reducer';
+
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <Provider store={store}><App /></Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
