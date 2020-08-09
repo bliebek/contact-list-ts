@@ -11,14 +11,6 @@ code {
     monospace;
 }
 
-.App {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: space-between;
-  margin: 20px 0;
-}
-
 .selected {
   color: #333333;
   font-size: 26px;
