@@ -28,9 +28,10 @@ const getPersonListError = (e:Error):GenericActionError => ({
 const personReducer = (state: PersonState = initialPersonState, action: any) => {
     switch (action.type) {
         case 'PERSON_LIST_REQUEST':
-            return { ...state, loading: true };
+            return { ...state, loading: true, error: undefined };
         case 'PERSON_LIST_SUCCESS':
-            return { ...state, loading: false, list: state.list.concat(action.data) };
+            console.log('success', state.list.length, state.list, state.list.concat(action.data))
+            return { ...state, loading: false, error: undefined, list: state.list.concat(action.data) };
         case 'PERSON_LIST_ERROR':
             return { ...state, loading: false, error: action.e };
         default:

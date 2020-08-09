@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import PersonInfo from "./../person/info";
 import { getPersonList } from "../../service/person/actions";
@@ -12,21 +12,24 @@ function App() {
     const data = useSelector(list);
     const isLoading = useSelector(loading);
     const actionError = useSelector(error);
+    const loadData = useCallback(() => dispatch(getPersonList()), [ dispatch ]);
 
     useEffect(() => {
-        dispatch(getPersonList());
-    }, [ dispatch ]);
+        loadData();
+    }, [ loadData ]);
+
+    const onMoreClick = () => loadData();
 
     return (
         <div className="c-person-list">
             {isLoading && <Loading />}
             {actionError && <Error msg={actionError.toString()} />}
-            <div className="selected">Selected contacts: {0}</div>
-            <div className="list">
-                {data.map((personInfo:Person) => (
-                    // @ts-ignore
-                    <PersonInfo key={personInfo.id} data={personInfo} />
-                ))}
+            <div className="c-person-list__summary">Selected contacts: {0}</div>
+            <ul className="c-person-list__list">
+                {data.map((personInfo:Person) => <li key={personInfo.id}><PersonInfo data={personInfo} /></li>)}
+            </ul>
+            <div className={'c-person-list__footer'}>
+                <button disabled={isLoading} onClick={onMoreClick}>More</button>
             </div>
         </div>
     );
