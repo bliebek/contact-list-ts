@@ -1,3 +1,7 @@
+.c-person-list__summary {
+    padding: 10px;
+}
+
 .c-person-list__list {
     padding: 0 10px;
 }
