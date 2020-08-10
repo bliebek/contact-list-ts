@@ -30,7 +30,7 @@ const togglePersonSelect = (id:string):GenericItemAction => ({
     id
 });
 
-const personReducer = (state: PersonState = initialPersonState, action: any) => {
+const personReducer = (state: PersonState = initialPersonState, action: any):PersonState => {
     switch (action.type) {
         case 'PERSON_LIST_REQUEST':
             return { ...state, loading: true, error: undefined };

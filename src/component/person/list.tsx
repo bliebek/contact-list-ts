@@ -9,7 +9,7 @@ import Error from './../error/error';
 
 import './list.css';
 
-function App() {
+export default () => {
     const dispatch = useDispatch();
     const isLoading = useSelector(loading);
     const actionError = useSelector(error);
@@ -39,6 +39,4 @@ function App() {
             </div>
         </div>
     );
-}
-
-export default App;
+};
