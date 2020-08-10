@@ -1,0 +1,9 @@
+.c-person-list__list {
+    padding: 0 10px;
+}
+
+.c-person-list__list li {
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+}
