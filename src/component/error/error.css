@@ -1,9 +1,12 @@
 .c-error {
-    border: solid 10px red;
+    background-color: #fff2f0;
+    border: 1px solid #ffccc7;
+    border-radius: 4px;
     position: fixed;
     right: 0;
     top: 0;
     height: 50px;
+    padding: 6px 12px;
     line-height: 50px;
     width: 400px;
 

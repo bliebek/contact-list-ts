@@ -1,5 +1,4 @@
 .c-loading {
-    border: solid 10px red;
     background: rgba(255,255,255,0.3);
     position: fixed;
     left: 0;
@@ -11,14 +10,14 @@
 .c-loading__loader,
 .c-loading__loader:before,
 .c-loading__loader:after {
-    background: #000;
+    background: #999;
     -webkit-animation: load1 1s infinite ease-in-out;
     animation: load1 1s infinite ease-in-out;
     width: 1em;
     height: 4em;
 }
 .c-loading__loader {
-    color: #000;
+    color: #999;
     text-indent: -9999em;
     margin: 88px auto;
     position: relative;
