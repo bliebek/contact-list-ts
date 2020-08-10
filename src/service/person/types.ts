@@ -2,7 +2,8 @@ export interface Person {
     id: string,
     jobTitle: string,
     emailAddress: string,
-    firstNameLastName: string
+    firstNameLastName: string,
+    selected?: boolean
 }
 
 export interface PersonState {

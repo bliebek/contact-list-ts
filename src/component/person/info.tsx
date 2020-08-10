@@ -2,14 +2,17 @@ import React from "react";
 
 type Props = {
   data: {
-    firstNameLastName: string;
-    jobTitle: string;
-    emailAddress: string;
-  };
+    firstNameLastName: string,
+    jobTitle: string,
+    emailAddress: string,
+    selected?: boolean,
+    id: string
+  },
+  onClick: Function
 };
 
 function PersonInfo(props: Props) {
-  const { data } = props;
+  const { data, onClick } = props;
   return (
     <div
       style={{
@@ -23,7 +26,8 @@ function PersonInfo(props: Props) {
         background: "#fff",
         cursor: "pointer",
       }}
-      className="person-info"
+      className={`person-info ${data.selected ? 'selected' : ''}`}
+      onClick={() => onClick(data.id)}
     >
       <div className="firstNameLastName">{data.firstNameLastName}</div>
       <div className="jobTitle">{data.jobTitle}</div>
