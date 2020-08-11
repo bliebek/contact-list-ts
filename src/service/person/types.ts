@@ -9,5 +9,5 @@ export interface Person {
 export interface PersonState {
     list: Person[],
     loading: boolean,
-    error?: string
+    error?: Error
 }

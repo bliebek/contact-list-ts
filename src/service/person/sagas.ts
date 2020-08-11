@@ -3,7 +3,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import apiDataWrapped from './../api/api';
 import { getPersonListRequest, getPersonListSuccess, getPersonListError } from './actions';
 
-function* personListSaga() {
+export function* personListSaga() {
     try {
         yield put(getPersonListRequest());
         const data = yield call(apiDataWrapped);

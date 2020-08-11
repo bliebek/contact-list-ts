@@ -17,7 +17,9 @@ function PersonInfo(props: Props) {
   const onItemClick = (e:SyntheticEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      onClick(data.id);
+      if (typeof onClick === 'function') {
+          onClick(data.id);
+      }
   };
 
   return (
